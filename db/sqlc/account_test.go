@@ -34,8 +34,7 @@ func TestCreateAcount(t *testing.T) {
 	CreateRandomAccount(t)
 }
 
-func TestGetAccount(t *testing.T) {
-	account1 := CreateRandomAccount(t)
+func TestGetAccount(t *testing.T) { account1 := CreateRandomAccount(t)
 	account2, err := testQueries.GetAccount(context.Background(), account1.ID)
 	require.NoError(t, err)
 	require.NotEmpty(t, account2)
@@ -78,14 +77,6 @@ func TestDeleteAccount(t *testing.T) {
 	require.EqualError(t, err, sql.ErrNoRows.Error())
 	require.Empty(t, account2)
 
-	// require.NoError(t, err)
-	// require.NotEmpty(t, account2)
-
-	// require.Equal(t, account1.ID, account2.ID)
-	// require.Equal(t, account1.Owner, account2.Owner)
-	// require.Equal(t, arg.Balance, account2.Balance)
-	// require.Equal(t, account1.Currency, account2.Currency)
-	// require.WithinDuration(t, account1.CreateAt, account2.CreateAt, time.Second)
 }
 
 func TestListAccounts(t *testing.T) {
