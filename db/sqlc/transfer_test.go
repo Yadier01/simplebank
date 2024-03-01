@@ -52,12 +52,12 @@ func TestListTransfer(t *testing.T) {
 		CreateRandomTransfer(t)
 	}
 
-	arg := ListTransferParams{
+	arg := ListTransfersParams{
 		Limit:  5,
 		Offset: 5,
 	}
 
-	transfers, err := testQueries.ListTransfer(context.Background(), arg)
+	transfers, err := testQueries.ListTransfers(context.Background(), arg)
 	require.NoError(t, err)
 	require.Len(t, transfers, 5)
 
