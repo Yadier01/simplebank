@@ -6,7 +6,7 @@ const (
 	CAD = "CAD"
 )
 
-func isSupportedCurrency(currency string) bool {
+func IsSupportedCurrency(currency string) bool {
 	switch currency {
 	case USD, EUR, CAD:
 		return true
