@@ -3,6 +3,7 @@ package api
 import (
 	"database/sql"
 	"net/http"
+	"time"
 
 	db "github.com/Yadier01/simplebank/db/sqlc"
 	"github.com/Yadier01/simplebank/util"
@@ -102,7 +103,7 @@ func (server *Server) loginUser(ctx *gin.Context) {
 	}
 	accessToken, err := server.tokenMaker.CreateToken(
 		user.Username,
-		server.config.AccessTokenDuration,
+		10*time.Minute,
 	)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
